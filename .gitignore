@@ -13,3 +13,5 @@
 #!.zprofile
 !.zshrc
 !.zsh_custom
+
+!.ssh

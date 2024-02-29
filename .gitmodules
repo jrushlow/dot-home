@@ -1,0 +1,3 @@
+[submodule ".ssh"]
+	path = .ssh
+	url = gith:jrushlow/dot-ssh
