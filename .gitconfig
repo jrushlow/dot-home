@@ -1,0 +1,10 @@
+[user]
+	name = Jesse Rushlow
+	email = jr@rushlow.dev
+	signingkey = 79712BB7E139D5AC
+[init]
+	defaultBranch = main
+[commit]
+	gpgsign = true
+[core]
+	excludesfile = ~/.gitignore_global

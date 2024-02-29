@@ -5,6 +5,8 @@
 !.gitignore
 
 !**/.gitignore
+!.gitconfig
+!.gitignore_global
 
 !.composer
 
