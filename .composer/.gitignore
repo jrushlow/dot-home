@@ -1,0 +1,7 @@
+# Ignore Everything
+*
+
+# Explicitly add files to git
+!.gitignore
+!composer.json
+
