@@ -1,10 +1,27 @@
+# This is Git's per-user configuration file.
 [user]
-	name = Jesse Rushlow
-	email = jr@rushlow.dev
-	signingkey = 79712BB7E139D5AC
+    name = Jesse Rushlow
+    email = jr@rushlow.dev
+    signingkey = 79712BB7E139D5AC
 [init]
 	defaultBranch = main
 [commit]
-	gpgsign = true
+    gpgsign = true
 [core]
-	excludesfile = ~/.gitignore_global
+    excludesfile = ~/.gitignore_global
+    autocrlf = input
+[hub]
+    protocol = ssh
+[rerere]
+    enabled = true
+    autoUpdate = true
+[branch]
+    sort = -committerdate
+[column]
+    ui = auto
+[alias]
+    fpush = push
+#[maintenance]
+#        repo = ~/develop/php/forked-reset-password-bundle
+#        repo = ~/develop/php/forked-maker-bundle
+
