@@ -1,0 +1,12 @@
+adrieankhisbe.vscode-ndjson
+mrmlnc.vscode-apache
+twxs.cmake
+ms-vscode.cpptools-extension-pack
+ms-vscode.cmake-tools
+ms-vscode.cpptools
+ms-azuretools.vscode-docker
+ms-vscode-remote.remote-containers
+esbenp.prettier-vscode
+quicktype.quicktype
+meezilla.json
+donjayamanne.githistory

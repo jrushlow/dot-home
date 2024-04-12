@@ -1,5 +1,5 @@
 # Ignore everything in the home dir
-*
+# *
 
 # Explicitly allowed items
 !.gitignore
