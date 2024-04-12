@@ -11,4 +11,5 @@ ms-vscode.cpptools
 ms-vscode.cpptools-extension-pack
 ms-vscode.cpptools-themes
 quicktype.quicktype
+tetradresearch.vscode-h2o
 twxs.cmake
