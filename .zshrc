@@ -79,7 +79,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -102,11 +102,14 @@ source $ZSH/oh-my-zsh.sh
 
 # BEGIN SNIPPET: Platform.sh CLI configuration
 # HOME=${HOME:-'/Users/jrdev-mac'}
-export PATH="$HOME/"'.platformsh/bin':"$PATH"
-if [ -f "$HOME/"'.platformsh/shell-config.rc' ]; then . "$HOME/"'.platformsh/shell-config.rc'; fi # END SNIPPET
+# export PATH="$HOME/"'.platformsh/bin':"$PATH"
+# if [ -f "$HOME/"'.platformsh/shell-config.rc' ]; then . "$HOME/"'.platformsh/shell-config.rc'; fi # END SNIPPET
 
 # Global Composer Bin
 export PATH="$PATH:$HOME/.composer/vendor/bin"
+
+# makes commands like "git log" and "grep" not clear the screen after exit
+PAGER='less -X'
 
 # Terminal Prompt Name
 #export PS1="jesse$  "
