@@ -11,5 +11,9 @@
     "**/bower_components": true,
     "**/node_modules": true
   },
-  "workbench.settings.useSplitJSON": true
+  "workbench.settings.useSplitJSON": true,
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format",
+    "files.eol": "\n"
+  }
 }
