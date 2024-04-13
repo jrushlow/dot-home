@@ -73,7 +73,7 @@ echo -e "${TEXT[bold]}$(COLOR green "Installing items to home directory!")\n"
 for i in "${FILES[@]}"; do
     sourcePath=$PWD/$i
     targetPath=$HOME/$i
-    diffResult="$(diff $sourcePath $targetPath --color='always' -N)"
+    diffResult="$(diff $targetPath $sourcePath --color='always' -N)"
     isDiff=$?
 
     echo -e "Checking $(COLOR cyan $targetPath)"   
