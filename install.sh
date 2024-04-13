@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+# set -eu
 
 # Include arguments script
 source "${0%/*}/install-args.sh"
@@ -37,15 +37,14 @@ function createBackup {
     fi
 }
 
+# $1 source path
+# $2 target path
 function createSymlink {
-    if [[ -e $HOME/$1 ]]; then
-        (
-            cd $HOME
-            rm -rf $1
-        )
+    if [[ -e $2 ]]; then
+        (rm -rf $2)
     fi
 
-    ln -sf $PWD/$1 $HOME/$1
+    ln -sf $1 $2
 }
 
 # Remove any backup files that exist and nothing else
@@ -72,19 +71,54 @@ fi
 echo -e "${TEXT[bold]}$(COLOR green "Installing items to home directory!")\n"
 
 for i in "${FILES[@]}"; do
-    if [[ -e $HOME/$i && "$_arg_overwrite" != "on" ]]; then
-        echo "File already exists - Skipping: $i"
+    sourcePath=$PWD/$i
+    targetPath=$HOME/$i
+    diffResult="$(diff $sourcePath $targetPath --color='always' -N)"
+    isDiff=$?
+
+    echo -e "Checking $(COLOR cyan $targetPath)"   
+
+    # If target exists, get a diff from the source
+    if [[ -e $targetPath ]]; then
+        echo " - Found file"
+
+        if [[ "$isDiff" == 1 ]]; then
+            echo " - Existing file has changes (Red: Existing file. Green: New File.)"
+            echo "$diffResult"
+        fi
+    else
+        echo " - File doesn't exist"
+    fi
+
+    # If the files exists but -o not passed, skip
+    if [[ "$_arg_overwrite" != "on" && -e $targetPath ]]; then
+        echo " - Skipping - overwrite not enabled"
+        echo ""
 
         continue
     fi
 
-    echo -e "Creating symlink: $(COLOR cyan $i)"
+    # If the file does not exist, create it then continue to next file
+    if [[ ! -e $targetPath ]]; then
+        echo -e " - Creating symlink for $(COLOR cyan $i)"
+        createSymlink $sourcePath $targetPath
+        echo -e " - Created: $(COLOR green $targetPath)"
+        echo ""
 
-    if [[ -f $HOME/$i || -d $HOME/$i ]]; then
-        echo -e $(createBackup $HOME/$i)
+        continue
     fi
 
-    createSymlink $i
+    # Create a backup of the file/directory if backups are "on"
+    if [[ -f $targetPath || -d $targetPath ]] && [[ "$_arg_backup" == "on" ]]; then
+        echo " - Creating Backup..."
 
+        cp -Lr $targetPath $targetPath.bak
+
+        echo -e " - Backup Created: $(COLOR green $targetPath.bak)"
+    fi
+
+    echo -e " - Creating symlink for $(COLOR cyan $i)"
+    createSymlink $sourcePath $targetPath
+    echo -e " - Created: $(COLOR green $targetPath)"
     echo ""
 done
