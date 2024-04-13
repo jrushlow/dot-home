@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.local/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -70,7 +70,7 @@ ZSH_CUSTOM=$HOME/.zsh_custom
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-prompt)
+plugins=(git git-prompt common-aliases docker-compose thefuck)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,14 +101,20 @@ export LANG=en_US.UTF-8
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # BEGIN SNIPPET: Platform.sh CLI configuration
-# HOME=${HOME:-'/Users/jrdev-mac'}
+# HOME=${HOME:-'/home/jrdev'}
 # export PATH="$HOME/"'.platformsh/bin':"$PATH"
-# if [ -f "$HOME/"'.platformsh/shell-config.rc' ]; then . "$HOME/"'.platformsh/shell-config.rc'; fi # END SNIPPET
+# if [ -f "$HOME/"'.platformsh/shell-config.rc' ]; then . "$HOME/"'.platformsh/shell-config.rc'; fi
+# END SNIPPET
+
+# NodeJS
+VERSION=v20.11.0
+DISTRO=linux-x64
+export PATH=/usr/local/lib/nodejs/node-$VERSION-$DISTRO/bin:$PATH
 
 # Global Composer Bin
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
-# makes commands like "git log" and "grep" not clear the screen after exit
+# Makes commands like "git log" and "grep" not clear the screen after exit
 PAGER='less -X'
 
 # Terminal Prompt Name
