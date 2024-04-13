@@ -5,7 +5,14 @@
 # Include arguments script
 source "${0%/*}/install-args.sh"
 
-FILES=('.gitconfig' '.gitignore_global' '.zshrc' '.zsh_custom')
+FILES=(
+    '.gitconfig'
+    '.gitignore_global'
+    '.zshrc'
+    '.zsh_custom'
+    '.composer/.gitignore'
+    '.composer/composer.json'
+)
 declare -r FILES # Make "FILES" readonly
 
 declare -A TEXT # Make "TEXT" an associative array
@@ -76,14 +83,14 @@ for i in "${FILES[@]}"; do
     diffResult="$(diff $targetPath $sourcePath --color='always' -N)"
     isDiff=$?
 
-    echo -e "Checking $(COLOR cyan $targetPath)"   
+    echo -e "Checking $(COLOR cyan $targetPath)"
 
     # If target exists, get a diff from the source
     if [[ -e $targetPath ]]; then
         echo " - Found file"
 
         if [[ "$isDiff" == 1 ]]; then
-            echo " - Existing file has changes (Red: Existing file. Green: New File.)"
+            echo " - Changes can be made (Red: Existing file. Green: New File.)"
             echo "$diffResult"
         fi
     else
