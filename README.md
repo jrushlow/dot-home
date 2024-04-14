@@ -6,6 +6,8 @@ A collection of configuration files I use across my dev setup...
 
 _`install.sh` is tailored to meet my specific needs. Running this script IS a DESTRUCTIVE process. You shouldn't run this script unless you really know what you're doing. Even then, create backups of your files - don't rely soley on the `--backup` option._
 
+- Requires Bash `>4.0`
+
 To create symlinks to: 
 - .gitconfig
 - .gitignore_global
