@@ -13,3 +13,5 @@ ms-vscode.cpptools-themes
 quicktype.quicktype
 tetradresearch.vscode-h2o
 twxs.cmake
+equinusocio.vsc-material-theme
+equinusocio.vsc-material-theme-icons
