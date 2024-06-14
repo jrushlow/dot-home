@@ -70,7 +70,7 @@ ZSH_CUSTOM=$HOME/.zsh_custom
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-prompt common-aliases docker-compose thefuck)
+plugins=(git git-prompt common-aliases docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -134,3 +134,19 @@ PAGER='less -X'
 #export PS1="%~ $ "
 #export PS1="%F{26}%1~ $%f "
 #export PS1="\s-\v\$"
+
+#################### Linux ##############################
+
+# Node Version Manager
+if [ -d "$HOME/.nvm" ]; then
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
+
+# Neovim Path
+if [ -d "/opt/nvim-linux64/bin" ]; then
+    export PATH="$PATH:/opt/nvim-linux64/bin"
+fi
+#########################################################
+
