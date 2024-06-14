@@ -111,10 +111,15 @@ export LANG=en_US.UTF-8
 # NodeJS 
 VERSION=v20.11.0
 DISTRO=linux-x64
-export PATH=/usr/local/lib/nodejs/node-$VERSION-$DISTRO/bin:$PATH
+
+if [ -d "/usr/local/lib/nodejs/node-$VERSION-$DISTRO/bin" ]; then
+    export PATH=/usr/local/lib/nodejs/node-$VERSION-$DISTRO/bin:$PATH
+fi
 
 # Docker Hub / Docker
-export PATH="$PATH:$HOME/.docker/bin"
+if [ -d "$HOME/.docker/bin" ]; then
+    export PATH="$PATH:$HOME/.docker/bin"
+fi
 
 ##################### MACOS ##############################
 
