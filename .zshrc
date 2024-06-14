@@ -106,10 +106,17 @@ export LANG=en_US.UTF-8
 # if [ -f "$HOME/"'.platformsh/shell-config.rc' ]; then . "$HOME/"'.platformsh/shell-config.rc'; fi
 # END SNIPPET
 
-# NodeJS
+##################### MACOS ##############################
+
+# NodeJS 
 VERSION=v20.11.0
 DISTRO=linux-x64
 export PATH=/usr/local/lib/nodejs/node-$VERSION-$DISTRO/bin:$PATH
+
+# Docker Hub / Docker
+export PATH="$PATH:$HOME/.docker/bin"
+
+##################### MACOS ##############################
 
 # Global Composer Bin
 export PATH="$PATH:$HOME/.composer/vendor/bin"
